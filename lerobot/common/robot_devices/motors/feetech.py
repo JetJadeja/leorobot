@@ -678,9 +678,11 @@ class FeetechMotorsBus:
         group = scs.GroupSyncRead(self.port_handler, self.packet_handler, addr, bytes)
         for idx in motor_ids:
             group.addParam(idx)
+            print(idx)
 
         for _ in range(num_retry):
             comm = group.txRxPacket()
+            print(comm)
             if comm == scs.COMM_SUCCESS:
                 break
 
